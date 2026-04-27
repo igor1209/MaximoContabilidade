@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Máximo Contabilidade | Contabilidade de Excelência</title>
+    
+    <meta name="description" content="Assessoria contábil, fiscal e planejamento tributário de excelência no Recife. Protegendo o seu patrimônio há mais de 32 anos.">
+    
+    <link rel="icon" type="image/jpeg" href="Máximo Contabilidade LOGO.jpg">
+    <link rel="shortcut icon" href="Máximo Contabilidade LOGO.jpg">
+    <link rel="apple-touch-icon" href="Máximo Contabilidade LOGO.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Palette: Premium Dark & Elegant Accent */
+            --bg-primary: #050505;
+            --bg-secondary: #111111;
+            --bg-glass: rgba(5, 5, 5, 0.90);
+            --text-main: #F8FAFC;
+            --text-muted: #9CA3AF;
+            --accent-color: #D4AF37; /* Premium Gold */
+            --accent-hover: #F3E5AB;
+            --whatsapp-color: #25D366;
+            
+            /* Typography */
+            --font-headings: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Layout & Spacing */
+            --nav-height: 80px;
+            --container-padding: 0 5%;
+            --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+            
+            /* Animation */
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE (SCROLL SNAP RULES)
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            /* Enables smooth full-screen section scrolling */
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-headings);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        /* ==========================================================================
+           3. FULL-SCREEN SECTION LAYOUT (100VH)
+           ========================================================================== */
+        section {
+            min-height: 100vh; /* Every section acts as a full screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            scroll-snap-align: start; /* Locks section into place */
+            scroll-snap-stop: always;
+            position: relative;
+            padding: calc(var(--nav-height) + 40px) 0 40px 0;
+            border-bottom: var(--border-subtle);
+        }
+
+        /* Specific background for alternating sections */
+        #credibilidade, #processo, #faq {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           4. COMPONENTS (BUTTONS & TYPOGRAPHY LOGO)
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 36px;
+            font-family: var(--font-headings);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* ==========================================================================
+           LOGOTIPO TIPOGRÁFICO
+           ========================================================================== */
+        .brand-logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            z-index: 1001; /* Above mobile menu */
+        }
+
+        .brand-logo-text:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-main {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #ffffff; /* 100% WHITE */
+        }
+
+        .logo-sub {
+            font-family: var(--font-headings);
+            font-weight: 600;
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            color: #d4af37; /* GOLD / YELLOW */
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           5. STICKY NAVBAR
+           ========================================================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            background-color: transparent;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            background-color: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: var(--border-subtle);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .nav-right-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ==========================================================================
+           6. HERO SECTION
+           ========================================================================== */
+        #hero {
+            background: linear-gradient(to right, rgba(5,5,5,0.95) 20%, rgba(5,5,5,0.6)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: var(--nav-height);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            text-wrap: balance;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================================================
+           7. CREDIBILITY SECTION
+           ========================================================================== */
+        .credibility-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .credibility-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .credibility-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .stat-item {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           8. SERVICES SECTION (CARDS)
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .service-card {
+            background-color: var(--bg-secondary);
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--accent-color);
+            font-family: var(--font-headings);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .service-link:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ==========================================================================
+           9. PROCESS SECTION
+           ========================================================================== */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            width: 100%;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--bg-primary);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-headings);
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .step h3 { margin-bottom: 1rem; font-size: 1.2rem; }
+        .step p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* ==========================================================================
+           10. TESTIMONIALS SECTION
+           ========================================================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-secondary);
+            padding: 3rem;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: #d1d5db;
+            font-size: 1.05rem;
+        }
+
+        .client-info h4 { font-size: 1rem; margin-bottom: 0.2rem; color: var(--text-main); }
+        .client-info span { color: var(--accent-color); font-size: 0.85rem; font-weight: 500; }
+
+        /* ==========================================================================
+           11. FAQ SECTION
+           ========================================================================== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .faq-item {
+            border-bottom: var(--border-subtle);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 2rem 0;
+            color: var(--text-main);
+            font-family: var(--font-headings);
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-question:hover { color: var(--accent-color); }
+        .faq-question i { transition: transform 0.3s; color: var(--text-muted); }
+        .faq-question.active i { transform: rotate(180deg); color: var(--accent-color); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .faq-answer p {
+            padding-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           12. FINAL CTA SECTION / CONTACT SECTION
+           ========================================================================== */
+        #cta {
+            background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)),
+                        url('https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+            text-align: center;
+        }
+
+        #cta h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+        #cta p { color: var(--text-muted); font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-inline: auto; }
+
+        /* ==========================================================================
+           13. COMPACT FOOTER
+           ========================================================================== */
+        footer {
+            background-color: #000;
+            padding: 3rem 0 1.5rem 0;
+            scroll-snap-align: end;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: var(--border-subtle);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 400px;
+        }
+
+        .footer-contact a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-contact i { color: var(--accent-color); font-size: 1.1rem; }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .footer-socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-socials a:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================================================
+           14. FLOATING WHATSAPP
+           ========================================================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-color);
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #1ea952;
+        }
+
+        /* ==========================================================================
+           15. SCROLL ANIMATIONS (REVEAL)
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* ==========================================================================
+           16. RESPONSIVE MEDIA QUERIES (MOBILE FIRST)
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            
+            /* Allow sections to expand if content is too large for 100vh on tablets */
+            section { height: auto; padding: calc(var(--nav-height) + 40px) 0 80px 0; }
+        }
+
+        @media (max-width: 768px) {
+            /* Fix Mobile Layout */
+            .credibility-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .stats-grid { text-align: left; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .footer-grid { flex-direction: column; text-align: center; justify-content: center; align-items: center; }
+            .footer-contact { align-items: center; text-align: center; }
+            
+            /* Mobile Navigation */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition-smooth);
+            }
+            
+            .nav-links.active { left: 0; }
+            
+            .mobile-menu-btn { display: block; }
+
+            /* Adjust typography & spacing */
+            .logo-main { font-size: 1.4rem; }
+            .logo-sub { font-size: 0.5rem; letter-spacing: 4px; }
+            .section-header { margin-bottom: 2rem; }
+            .btn { width: 100%; }
+            .hero-buttons { width: 100%; flex-direction: column; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="brand-logo-text">
+                <span class="logo-main">MÁXIMO</span>
+                <span class="logo-sub">CONTABILIDADE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Início</a></li>
+                <li><a href="#credibilidade">Sobre Nós</a></li>
+                <li><a href="#servicos">Especialidades</a></li>
+                <li><a href="#processo">Metodologia</a></li>
+                <li><a href="#depoimentos">Clientes</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-right-actions">
+                <button class="mobile-menu-btn" aria-label="Menu Mobile"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content reveal">
+                    <span class="hero-label">Consultoria e Planejamento Tributário</span>
+                    <h1>Segurança e Excelência Contábil Há 32 Anos.</h1>
+                    <p>Protegemos e alavancamos o seu patrimônio com inteligência financeira, gestão estratégica e conformidade fiscal no Recife e em todo o Brasil.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/5581992049637" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar com Especialista</a>
+                        <a href="#servicos" class="btn btn-outline">Nossas Soluções</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="credibilidade">
+            <div class="container credibility-grid">
+                <div class="credibility-text reveal">
+                    <h2>Autoridade construída com resultados reais.</h2>
+                    <p>Desde 1992, a Máximo Contabilidade atua muito além do cumprimento de obrigações fiscais. Nós entregamos inteligência de negócios para empresas que buscam segurança jurídica e otimização de lucros.</p>
+                    <p>Localizados no coração empresarial do Recife, possuímos a infraestrutura e a senioridade necessárias para absorver a complexidade do seu negócio.</p>
+                </div>
+                <div class="stats-grid reveal delay-1">
+                    <div class="stat-item">
+                        <h3>32</h3>
+                        <p>Anos de Excelência</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>360°</h3>
+                        <p>Visão de Negócios</p>
+                    </div>
+                    <div class="stat-item" style="grid-column: 1 / -1;">
+                        <h3>Ilha do Leite, Recife</h3>
+                        <p>Atuação Nacional, Sede Estratégica</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+                <div class="section-header reveal">
+                    <h2>Especialidades Máximo</h2>
+                    <p>Soluções sob medida desenhadas para garantir conformidade e máxima eficiência tributária para a sua operação.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Assessoria Contábil</h3>
+                        <p>Transformamos a complexidade contábil em relatórios estratégicos precisos para apoiar o seu crescimento empresarial.</p>
+                        <a href="#cta" class="service-link">Consultar Serviço <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal delay-1">
+                        <i class="fas fa-file-invoice-dollar service-icon"></i>
+                        <h3>Assessoria Fiscal</h3>
+                        <p>Conformidade absoluta e blindagem contra autuações. Garantimos que sua empresa opere dentro das normas com segurança.</p>
+                        <a href="#cta" class="service-link">Consultar Serviço <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal delay-2">
+                        <i class="fas fa-users-cog service-icon"></i>
+                        <h3>Assessoria de RH</h3>
+                        <p>Da folha de pagamento às rotinas trabalhistas complexas, mitigamos riscos e protegemos o capital humano da sua empresa.</p>
+                        <a href="#cta" class="service-link">Consultar Serviço <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal">
+                        <i class="fas fa-chess-knight service-icon"></i>
+                        <h3>Planejamento Tributário</h3>
+                        <p>Inteligência legal aplicada. Mapeamos cenários para aplicar as melhores elisões fiscais permitidas por lei.</p>
+                        <a href="#cta" class="service-link">Consultar Serviço <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal delay-1">
+                        <i class="fas fa-balance-scale service-icon"></i>
+                        <h3>Assessoria Tributária</h3>
+                        <p>Suporte contínuo para operações diárias, recuperação de créditos e orientação diante da complexa legislação brasileira.</p>
+                        <a href="#cta" class="service-link">Consultar Serviço <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal delay-2">
+                        <i class="fas fa-landmark service-icon"></i>
+                        <h3>Reforma Tributária</h3>
+                        <p>Antecipe-se às mudanças. Adaptamos seu modelo de negócio para a nova realidade tributária, mantendo a competitividade.</p>
+                        <a href="#cta" class="service-link">Consultar Serviço <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="processo">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Nossa Metodologia</h2>
+                    <p>Processos validados em três décadas para garantir uma transição suave e resultados consistentes.</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step reveal">
+                        <div class="step-number">1</div>
+                        <h3>Diagnóstico</h3>
+                        <p>Análise profunda do cenário fiscal, contábil e societário atual da sua empresa.</p>
+                    </div>
+                    <div class="step reveal delay-1">
+                        <div class="step-number">2</div>
+                        <h3>Estratégia</h3>
+                        <p>Desenho de um plano de ação focado em redução de custos legais e conformidade.</p>
+                    </div>
+                    <div class="step reveal delay-2">
+                        <div class="step-number">3</div>
+                        <h3>Execução</h3>
+                        <p>Implantação segura das rotinas pela nossa equipe sênior, sem interromper sua operação.</p>
+                    </div>
+                    <div class="step reveal delay-3">
+                        <div class="step-number">4</div>
+                        <h3>Performance</h3>
+                        <p>Relatórios mensais estratégicos e adaptação contínua às mudanças legislativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Confiança que Gera Resultados</h2>
+                    <p>O que dizem os líderes das empresas que constroem o futuro conosco.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <p>"A Máximo revolucionou nossa visão sobre contabilidade. Com o planejamento tributário deles, conseguimos reestruturar nossos custos e investir em expansão com segurança jurídica."</p>
+                        <div class="client-info">
+                            <h4>Diretoria Financeira</h4>
+                            <span>Indústria de Grande Porte - PE</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal delay-1">
+                        <p>"Excelente parceiro estratégico. A assessoria na reforma tributária nos deu clareza que nenhuma outra consultoria conseguiu. Profissionais de altíssimo nível."</p>
+                        <div class="client-info">
+                            <h4>CEO</h4>
+                            <span>Rede Varejista Nacional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container faq-container">
+                <div class="section-header reveal">
+                    <h2>Perguntas Frequentes</h2>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Como a Máximo atua na Reforma Tributária?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Realizamos simulações de impacto baseadas na nova legislação, avaliando como afetará sua cadeia de suprimentos e precificação. Estruturamos planos de transição seguros para minimizar impactos na sua margem de lucro.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Minha empresa não é do Recife, posso ser cliente?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim. Embora nossa sede esteja na Ilha do Leite em Recife, nossa infraestrutura e inteligência digital nos permite atender empresas de médio e grande porte em todo o território nacional, dominando diferentes legislações estaduais.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Como funciona a migração de contabilidade?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nossa equipe técnica cuida de todo o processo. Solicitamos a documentação necessária ao seu contador atual e realizamos a migração de dados e certificados de forma segura, garantindo zero interrupção no seu faturamento diário.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container reveal">
+                <h2>Pronto para otimizar sua estrutura tributária?</h2>
+                <p>Deixe que nossos especialistas assumam a complexidade enquanto você foca no crescimento do seu negócio. Agende uma consultoria diagnóstica sem compromisso.</p>
+                <a href="https://wa.me/5581992049637" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 20px 45px;">
+                    <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> Agendar Diagnóstico
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <a href="#hero" class="brand-logo-text">
+                        <span class="logo-main">MÁXIMO</span>
+                        <span class="logo-sub">CONTABILIDADE</span>
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rua%20General%20Joaquim%20Inacio%20830%2C%20salas%201611%20e%201612%2C%20Ilha%20do%20Leite%2C%20Recife%2C%20Brazil" target="_blank">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rua General Joaquim Inacio 830, salas 1611 e 1612, Ilha do Leite, Recife, Brazil</span>
+                    </a>
+                    <a href="https://wa.me/5581992049637" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+55 81 99204-9637</span>
+                    </a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/people/M%C3%A1ximo-Contabilidade/61586161831939/?ref=PROFILE_EDIT_xav_ig_profile_page_web#" target="_blank" aria-label="Acesse nosso Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/maximo.contabilidade" target="_blank" aria-label="Acesse nosso Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Máximo Contabilidade. Todos os direitos reservados. Excelência desde 1992.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5581992049637" class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Sticky Navbar & Background styling on scroll
+            const nav = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // 2. Active Section Highlight based on IntersectionObserver
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            const sectionObserverOptions = {
+                threshold: 0.5 // Triggers when 50% of the section is visible
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        let currentId = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${currentId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, sectionObserverOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // 3. Mobile Menu Toggle
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinksContainer = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+                const icon = mobileBtn.querySelector('i');
+                if(navLinksContainer.classList.contains('active')){
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinksContainer.classList.remove('active');
+                    mobileBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
+            });
+
+            // 4. FAQ Accordion Logic
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+
+                    // Close all others
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                    });
+
+                    // Open target
+                    if (!isActive) {
+                        question.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // 5. Scroll Reveal Animations
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.2, // Trigger when 20% visible
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Reveal only once
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
