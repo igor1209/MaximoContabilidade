@@ -6,7 +6,7 @@ Website institucional desenvolvido para a empresa **Máximo Contabilidade**, com
 
 ## 🌐 Acesse o site
 
-👉 https://igor1209.github.io/M-ximo-Contabilidade/
+👉 https://igor1209.github.io/MaximoContabilidade/
 
 ---
 
